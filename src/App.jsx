@@ -71,17 +71,17 @@ export default function App() {
             {/* Main Title */}
             <div className="text-center mb-6 animate-slideInUp" style={{ animationDelay: '0.1s' }}>
               <h1 className="text-6xl font-bold text-dark mb-4 leading-tight">
-                Өңеге жағы<br/><span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">шағым құру</span>
+                Әртүрлі әлеуметтік мәселелерге қатысты<br/><span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">шағым құру</span>
               </h1>
               <p className="text-2xl text-accent mb-3">Мәселеңізді ресми түрде білдіріңіз</p>
-              <p className="text-lg text-accent">Оңай, тез және құпиялы</p>
+              <p className="text-lg text-accent">Оңай, тез және шығынсыз</p>
             </div>
 
             {/* Subheading */}
             <div className="text-center mb-12 animate-slideInUp" style={{ animationDelay: '0.2s' }}>
               <p className="text-base text-dark max-w-2xl mx-auto leading-relaxed">
-                Қаулыарылық мәселелеріңіз туралы резми шағымды бірнеше минутта құрыңыз. 
-                Барлық талаптарға сәйкес, құуықтарды арттыруға дайын.
+                Ыңғайсыздық тудыратын мәселелерге қатысты ресми шағымды бірнеше минутта құрыңыз. 
+          
               </p>
             </div>
 
@@ -92,7 +92,7 @@ export default function App() {
                 size="lg"
                 className="font-bold text-lg px-8 py-4 shadow-gentle hover:shadow-gentle"
               >
-                🚀 Басы бастау
+                🚀 Шағым құруды бастау
               </PrimaryButton>
             </div>
           </div>
@@ -101,17 +101,15 @@ export default function App() {
         {/* Features Section */}
         <div className="py-20 px-4 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-dark mb-4">Әдістемелік ерттіктер</h2>
-            <p className="text-center text-accent mb-12">Біздің платформа қалай сізге көмектеседі</p>
+            <h2 className="text-4xl font-bold text-center text-dark mb-4">Біздің платформаның артықшылықтары</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Feature 1 */}
               <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-8 border-2 border-light shadow-soft hover:shadow-gentle hover:border-primary transition-all hover:-translate-y-2 animate-slideInUp" style={{ animationDelay: '0.4s' }}>
                 <div className="text-5xl mb-4">⚡</div>
-                <h3 className="text-xl font-bold text-dark mb-3">Ғана 5 минут</h3>
+                <h3 className="text-xl font-bold text-dark mb-3">5 минутта шағым құрыңыз</h3>
                 <p className="text-accent leading-relaxed">
-                  Өңтіліктеу құрылымын бірнеше минутта құрыңыз. Ешқандай қиындық немесе қара істеу қажет емес.
-                </p>
+                  Біздің платформа әр адам еш қиындықсыз шағым құра алатындай етіп оңай және интуитивті түрде жасалған. Сізден тек қажетті деректерді жазу ғана қажет, қалғанын біз өзіміз жасаймыз.                </p>
               </div>
 
               {/* Feature 2 */}
@@ -119,7 +117,7 @@ export default function App() {
                 <div className="text-5xl mb-4">🔒</div>
                 <h3 className="text-xl font-bold text-dark mb-3">Толықтай құпиялы</h3>
                 <p className="text-accent leading-relaxed">
-                  Сіздің мәліктеріңіз локальды сақталады. Еш түрде шетінші тарапқа жіберілмейді. Қауіпсіз!
+                  Сіздің мәліметтеріңіз қорғалған және тек өзіңізге ғана қолжетімді. Біз ешқашан үшінші тарапқа мәліметтерді жібермейміз. Қауіпсіздік пен құпиялылық біздің басты басымдықтарымыздың бірі.
                 </p>
               </div>
 
@@ -128,7 +126,7 @@ export default function App() {
                 <div className="text-5xl mb-4">✅</div>
                 <h3 className="text-xl font-bold text-dark mb-3">Ресми құрылым</h3>
                 <p className="text-accent leading-relaxed">
-                  Барлық құрылымдар өндіктеге сәйкес құрылады. Мемлекеттік органдарға тікелей жіберуге дайын.
+                  Шағым барлық нормативтік талаптарға сай және бекітілген стандарттарға толық сәйкес әзірленеді.  Сонымен қатар, барлық деректер тиісті талаптарға сай тексеріліп, бекітілген тәртіпке сәйкес жүйеленеді.
                 </p>
               </div>
             </div>
@@ -138,8 +136,7 @@ export default function App() {
         {/* Problems Section */}
         <div className="py-20 px-4 bg-gradient-to-b from-blue-50 to-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-dark mb-4">Қандай мәселелер шешілінеді?</h2>
-            <p className="text-center text-accent mb-12">Барлық түрдегі қалалық және өндіктеу мәселелері</p>
+            <h2 className="text-4xl font-bold text-center text-dark mb-4">Шағым қандай өзекті мәселелерді қамти алады?</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Problem Categories */}
@@ -150,7 +147,7 @@ export default function App() {
                 </div>
                 <div className="bg-white rounded-lg p-6 border-l-4 border-secondary shadow-soft hover:shadow-gentle transition-all">
                   <h4 className="font-bold text-dark mb-2">🏠 Коммуналдық қызметтер</h4>
-                  <p className="text-sm text-accent">Су, кәріз, жылу, электр, лифт, подъезд тазалығы</p>
+                  <p className="text-sm text-accent">Су, жылу, электр, лифт, подъезд тазалығы</p>
                 </div>
               </div>
 
@@ -169,65 +166,77 @@ export default function App() {
         </div>
 
         {/* Benefits Section */}
-        <div className="py-20 px-4 bg-white">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-dark mb-12">Неге біздің қосымшаны таңдау?</h2>
+       {/* Benefits Section */}
+<div className="py-20 px-4 bg-white">
+  <div className="max-w-5xl mx-auto">
+    <h2 className="text-4xl font-bold text-center text-dark mb-12">
+      Біздің платформаны не үшін таңдауыңыз қажет?
+    </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '0.7s' }}>
-                <div className="flex-shrink-0">
-                  <div className="text-3xl">📋</div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-dark mb-2">Уақыт үнемдеу</h3>
-                  <p className="text-accent">Сіз ескеле ластап шағым аңдау қажет емес — біз әрқайсысын қайта-әйгілі уақытта істейміз</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '0.8s' }}>
-                <div className="flex-shrink-0">
-                  <div className="text-3xl">🎯</div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-dark mb-2">Бәлер формасы</h3>
-                  <p className="text-accent">Құрылымымыз сіне сәйкес болговала, дәл өндіктеге құсталды</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '0.9s' }}>
-                <div className="flex-shrink-0">
-                  <div className="text-3xl">💾</div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-dark mb-2">Үйлестіру алмасу</h3>
-                  <p className="text-accent">Мәліктеріңіз автоматты түрде сақталады — ештеңе жеберіле жоқ!</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '1.0s' }}>
-                <div className="flex-shrink-0">
-                  <div className="text-3xl">🔄</div>
-                </div>
-                <div>
-                  <h3 className="text-lg font-bold text-dark mb-2">Өндіктелген аралықта</h3>
-                  <p className="text-accent">Барлық мәліктер барлық мемлекеттік пәттілмелділіктерді орындайды</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      
+      <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '0.7s' }}>
+        <div className="flex-shrink-0">
+          <div className="text-3xl">📋</div>
         </div>
+        <div>
+          <h3 className="text-lg font-bold text-dark mb-2">Уақыт үнемдеу</h3>
+          <p className="text-accent">
+            Сіз тек шағым мәтінін енгізесіз, ал қалған рәсімдеу жұмыстарын платформа автоматты түрде орындайды.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '0.8s' }}>
+        <div className="flex-shrink-0">
+          <div className="text-3xl">🎯</div>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-dark mb-2">Ресми стандарттарға сәйкестік</h3>
+          <p className="text-accent">
+            Барлық құжаттар мемлекеттік органдардың талаптарына сәйкес дұрыс құрылымда автоматты түрде қалыптастырылады.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '0.9s' }}>
+        <div className="flex-shrink-0">
+          <div className="text-3xl">💾</div>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-dark mb-2">Деректердің қауіпсіздігі</h3>
+          <p className="text-accent">
+            Сіздің барлық мәліметтеріңіз қауіпсіз түрде сақталады және жоғалып кету қаупі болмайды.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex gap-4 animate-slideInUp" style={{ animationDelay: '1.0s' }}>
+        <div className="flex-shrink-0">
+          <div className="text-3xl">🔄</div>
+        </div>
+        <div>
+          <h3 className="text-lg font-bold text-dark mb-2">Жылдам өңдеу</h3>
+          <p className="text-accent">
+            Платформа шағымыңызды қысқа уақыт ішінде өңдеп, дайын мәтін ретінде ұсынады.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
 
         {/* Final CTA Section */}
         <div className="py-20 px-4 bg-gradient-to-r from-primary/10 via-transparent to-secondary/10">
           <div className="max-w-2xl mx-auto text-center animate-slideInUp" style={{ animationDelay: '1.1s' }}>
-            <h2 className="text-4xl font-bold text-dark mb-6">Міні басингіздің құрылымын құрыңыз</h2>
-            <p className="text-lg text-accent mb-8">Құндысы жоқ, мәктергі қажет емес, мәліктеріңіз құпиялы</p>
+            <h2 className="text-4xl font-bold text-dark mb-6">Шағымыңызды жасауды дәл қазір бастаңыз👇</h2>
             <PrimaryButton
               onClick={() => setStep(2)}
               size="lg"
               className="font-bold text-lg px-8 py-4 shadow-gentle hover:shadow-gentle animate-bounce-slow"
             >
-              🔥 Басы бастау
+              Шағым құруды бастау
             </PrimaryButton>
           </div>
         </div>
@@ -241,7 +250,14 @@ export default function App() {
       <>
         <StepHeader step={1} totalSteps={2} title="Мәселені таңдау" />
         
-        <p className="text-accent text-sm mb-6">Сіздің мәселеңіз сыни мәселе бөлімдерінің бірінде іс жүргеді:</p>
+      <p className="text-dark text-sm mb-6 leading-relaxed">
+  <span className="font-semibold text-secondary">📋 Кеңес: </span> 
+  Берілген мәселелердің ішінен дайын шағымдарды таңдай аласыз немесе 
+  <span className="inline-flex items-center gap-1 mx-1 px-2 py-0.5 bg-blue-100 rounded-md text-blue-700 font-medium text-xs">
+    "Басқа мәселе"
+  </span> 
+  батырмасын басып, өзіңіз қалаған шағымды жаза аласыз.
+</p>
         
         <div className="mb-8">
           {problemCategories.map((category) => (
@@ -291,7 +307,7 @@ export default function App() {
 
     const renderForm = () => (
       <>
-        <StepHeader step={2} totalSteps={2} title={complaint ? "Сіздің шағымыңыз дайын" : "Сіздің мәліктеңіз"} />
+        <StepHeader step={2} totalSteps={2} title={complaint ? "Сіздің шағымыңыз дайын" : "Қажетті деректер"} />
         
         {!complaint && (
           <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
@@ -306,7 +322,7 @@ export default function App() {
             
             {/* Address Fields */}
             <div className="bg-light rounded-lg p-4 border-2 border-accent mb-6">
-              <p className="text-sm font-semibold text-dark mb-4">Мекенжайыңыз</p>
+              <p className="text-sm font-semibold text-dark mb-4">Мекен жайыңыз</p>
               
               <InputField
                 label="Облыс"
@@ -326,7 +342,7 @@ export default function App() {
                 />
                 
                 <InputField
-                  label="Қала / Елді"
+                  label="Қала / Ауыл"
                   value={formData.qala}
                   onChange={(value) => setFormData({ ...formData, qala: value })}
                   placeholder="Түлкібас қаласы"
@@ -478,9 +494,9 @@ export default function App() {
               <div className="flex items-start gap-3">
                 <div className="text-3xl">✓</div>
                 <div>
-                  <h2 className="font-semibold text-dark mb-1">Ерекше!</h2>
+                  <h2 className="font-semibold text-dark mb-1">Сәтті!</h2>
                   <p className="text-sm text-dark text-opacity-75">
-                    Сіздің ресми шағымыңыз құрылмалы. Төмендегі мәтінді көшіріп, мемлекеттік органдарына жібере аласыз.
+                    Төмендегі мәтінді көшіріп, мемлекеттік органдарына жібере аласыз.
                   </p>
                 </div>
               </div>
