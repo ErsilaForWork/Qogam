@@ -239,7 +239,7 @@ export default function App() {
   function renderSelectProblem() {
     return (
       <>
-        <StepHeader step={2} totalSteps={3} title="Мәселені таңдау" />
+        <StepHeader step={1} totalSteps={2} title="Мәселені таңдау" />
         
         <p className="text-accent text-sm mb-6">Сіздің мәселеңіз сыни мәселе бөлімдерінің бірінде іс жүргеді:</p>
         
@@ -291,7 +291,7 @@ export default function App() {
 
     const renderForm = () => (
       <>
-        <StepHeader step={3} totalSteps={3} title={complaint ? "Сіздің шағымыңыз дайын" : "Сіздің мәліктеңіз"} />
+        <StepHeader step={2} totalSteps={2} title={complaint ? "Сіздің шағымыңыз дайын" : "Сіздің мәліктеңіз"} />
         
         {!complaint && (
           <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
