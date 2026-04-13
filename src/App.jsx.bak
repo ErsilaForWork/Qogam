@@ -1,0 +1,335 @@
+import { useState, useEffect } from 'react';
+import { StepHeader } from './components/StepHeader';
+import { PrimaryButton } from './components/PrimaryButton';
+import { InputField } from './components/InputField';
+import { CategoryCard } from './components/CategoryCard';
+import { ComplaintPreview } from './components/ComplaintPreview';
+import { complaintTemplates, problemCategories } from './templates';
+import { replaceTemplatePlaceholders, copyToClipboard, formatDate, validateForm, buildFullAddress } from './utils';
+
+export default function App() {
+  // Step flow: 1 = home, 2 = select problem (auto-advances), 3 = enter details, 4 = service
+  const [step, setStep] = useState(1);
+  
+  // Form data
+  const [formData, setFormData] = useState(() => {
+    const saved = localStorage.getItem('complaintFormData');
+    return saved ? JSON.parse(saved) : {
+      fullName: '',
+      city: '',
+      district: '',
+      street: '',
+      building: '',
+      apartment: '',
+      date: new Date().toISOString().split('T')[0],
+      customDescription: ''
+    };
+  });
+  
+  // Selected problem
+  const [selectedProblem, setSelectedProblem] = useState(() => {
+    return localStorage.getItem('selectedProblem') || '';
+  });
+  
+  // Generated complaint
+  const [complaint, setComplaint] = useState('');
+  
+  // UI states
+  const [errors, setErrors] = useState({});
+  const [copied, setCopied] = useState(false);
+
+  // Save form data to localStorage
+  useEffect(() => {
+    localStorage.setItem('complaintFormData', JSON.stringify(formData));
+  }, [formData]);
+
+  useEffect(() => {
+    localStorage.setItem('selectedProblem', selectedProblem);
+  }, [selectedProblem]);
+
+  // Clear errors when form changes
+  useEffect(() => {
+    setErrors({});
+  }, [formData, selectedProblem]);
+
+  // Step 1: Home / Welcome
+  function renderHome() {
+    return (
+      <div className="text-center">
+        <h2 className="text-4xl font-bold text-dark mb-4">Меңлік генератор</h2>
+        <p className="text-lg text-dark mb-4 leading-relaxed">
+          Ресми құқықсыз мәлік өндіңіз бізбен пайдалану коршеген шынымен көптегі болсын
+        </p>
+        <p className="text-base text-accent mb-8">
+          Процесс бірнеше минut уақытта ұрындамсыз болмын. Барлық мәліктер реттікге болмын.
+        </p>
+        <PrimaryButton
+          onClick={() => setStep(2)}
+          size="lg"
+          className="mt-8"
+        >
+          Бастау
+        </PrimaryButton>
+      </div>
+    );
+  }
+
+  // Step 2: Select problem
+  function renderSelectProblem() {
+    return (
+      <>
+        <StepHeader step={2} totalSteps={6} title="Мәселені таңдау" />
+        
+        <div className="mb-8">
+          {problemCategories.map((category) => (
+            <CategoryCard
+              key={category.id}
+              name={category.name}
+              problems={category.problems}
+              selected={selectedProblem}
+              onSelectProblem={setSelectedProblem}
+            />
+          ))}
+        </div>
+
+        <div className="flex gap-4">
+          <PrimaryButton
+            onClick={() => setStep(1)}
+            variant="outline"
+            size="lg"
+            className="flex-1"
+          >
+            Артқа
+          </PrimaryButton>
+          <PrimaryButton
+            onClick={() => {
+              if (selectedProblem) {
+                setStep(3);
+              } else {
+                setErrors({ general: 'Мәселе таңдаңыз' });
+              }
+            }}
+            size="lg"
+            className="flex-1"
+            disabled={!selectedProblem}
+          >
+            Келесі
+          </PrimaryButton>
+        </div>
+
+        {errors.general && (
+          <p className="text-red-600 text-sm mt-4 text-center">{errors.general}</p>
+        )}
+      </>
+    );
+  }
+
+  // Step 3: Enter details
+  function renderEnterDetails() {
+    return (
+      <>
+        <StepHeader step={3} totalSteps={6} title="Мәліктеме енгізу" />
+        
+        <form onSubmit={(e) => e.preventDefault()}>
+          <InputField
+            label="Толық аты-жөні"
+            value={formData.fullName}
+            onChange={(value) => setFormData({ ...formData, fullName: value })}
+            placeholder="Айлықдай Оңайбайұлы Төйінбайұлы"
+            error={errors.fullName}
+          />
+          
+          <InputField
+            label="Тұрғын мекенжайы"
+            value={formData.address}
+            onChange={(value) => setFormData({ ...formData, address: value })}
+            placeholder="Астана қ., Есіл р-н, Абылай Хан к-сі, 10/1, 5 есікті"
+            error={errors.address}
+          />
+          
+          <InputField
+            label="Мәлік ішінде үстінен"
+            type="date"
+            value={formData.date}
+            onChange={(value) => setFormData({ ...formData, date: value })}
+            error={errors.date}
+          />
+
+          {selectedProblem === 'basqa' && (
+            <InputField
+              label="Мәселенің нақты сипаттамасы"
+              value={formData.customDescription}
+              onChange={(value) => setFormData({ ...formData, customDescription: value })}
+              placeholder="Мысалы: құбырдың жарылуы"
+              textarea={true}
+              error={errors.customDescription}
+            />
+          )}
+        </form>
+
+        <div className="flex gap-4">
+          <PrimaryButton
+            onClick={() => setStep(2)}
+            variant="outline"
+            size="lg"
+            className="flex-1"
+          >
+            Артқа
+          </PrimaryButton>
+          <PrimaryButton
+            onClick={() => {
+              const validation = validateForm(formData, selectedProblem);
+              if (validation.isValid) {
+                setStep(4);
+              } else {
+                setErrors(validation.errors);
+              }
+            }}
+            size="lg"
+            className="flex-1"
+          >
+            Келесі
+          </PrimaryButton>
+        </div>
+      </>
+    );
+  }
+
+  // Step 4: Preview complaint
+  function renderPreview() {
+    // Generate complaint if not already done
+    if (!complaint) {
+      const template = complaintTemplates[selectedProblem];
+      if (template) {
+        const generated = replaceTemplatePlaceholders(template, formData);
+        setComplaint(generated);
+      }
+    }
+
+    return (
+      <>
+        <StepHeader step={4} totalSteps={6} title="Мәтін Орындау" />
+        
+        {complaint && (
+          <>
+            <ComplaintPreview 
+              complaint={complaint} 
+              copied={copied}
+            />
+            
+            <div className="flex flex-col gap-3 md:flex-row">
+              <PrimaryButton
+                onClick={async () => {
+                  try {
+                    await copyToClipboard(complaint);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  } catch (err) {
+                    console.error('Copy failed:', err);
+                  }
+                }}
+                size="lg"
+                className="flex-1"
+              >
+                Көшіру
+              </PrimaryButton>
+              
+              <PrimaryButton
+                onClick={() => setStep(3)}
+                variant="outline"
+                size="lg"
+                className="flex-1"
+              >
+                Өңдеу
+              </PrimaryButton>
+              
+              <PrimaryButton
+                onClick={() => setStep(5)}
+                variant="secondary"
+                size="lg"
+                className="flex-1"
+              >
+                Келесі
+              </PrimaryButton>
+            </div>
+          </>
+        )}
+      </>
+    );
+  }
+
+  // Step 5: Service submission
+  function renderService() {
+    return (
+      <>
+        <StepHeader step={5} totalSteps={6} title="Қызметтерді өндіру" />
+        
+        <div className="bg-light border-2 border-secondary rounded-lg p-8 text-center mb-8">
+          <div className="text-4xl mb-4">✓</div>
+          <h2 className="text-2xl font-bold text-dark mb-2">Өндіктегі болды!</h2>
+          <p className="text-dark mb-6">
+            Сіздің мәлік готів болып өндіктеген барлық деңгейде
+          </p>
+          
+          <div className="bg-white rounded-lg p-6 mb-6 text-left">
+            <p className="text-sm text-accent mb-2">пікір төлік:</p>
+            <p className="font-semibold text-dark">{formData.fullName}</p>
+            <p className="text-sm text-dark text-opacity-70 mt-2">{formData.address}</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <PrimaryButton
+            onClick={() => {
+              window.open('https://egov.kz', '_blank');
+            }}
+            variant="secondary"
+            size="lg"
+            className="w-full"
+          >
+            Қызметті ашу
+          </PrimaryButton>
+          
+          <PrimaryButton
+            onClick={() => {
+              setStep(1);
+              setSelectedProblem('');
+              setComplaint('');
+              setFormData({
+                fullName: '',
+                address: '',
+                date: new Date().toISOString().split('T')[0],
+                customDescription: ''
+              });
+            }}
+            variant="outline"
+            size="lg"
+            className="w-full"
+          >
+            Жаңа мәлік
+          </PrimaryButton>
+        </div>
+      </>
+    );
+  }
+
+  // Step 6: Service link (redirect)
+  useEffect(() => {
+    if (step === 6) {
+      window.open('https://egov.kz', '_blank');
+      setStep(5);
+    }
+  }, [step]);
+
+  return (
+    <div className="min-h-screen bg-white flex items-center justify-center py-8 px-4">
+      <div className="w-full max-w-2xl">
+        {step === 1 && renderHome()}
+        {step === 2 && renderSelectProblem()}
+        {step === 3 && renderEnterDetails()}
+        {step === 4 && renderPreview()}
+        {step === 5 && renderService()}
+      </div>
+    </div>
+  );
+}
