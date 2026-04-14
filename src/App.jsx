@@ -477,6 +477,31 @@ export default function App() {
               >
                 📹 Шағымды жіберуді үйрену
               </PrimaryButton>
+
+              <PrimaryButton
+                onClick={() => {
+                  setStep(1);
+                  setComplaint('');
+                  setSelectedProblem('');
+                  setFormData({
+                    fullName: '',
+                    oblys: '',
+                    audan: '',
+                    qala: '',
+                    koshe: '',
+                    yy: '',
+                    date: new Date().toISOString().split('T')[0],
+                    customDescription: ''
+                  });
+                  setErrors({});
+                  setCopied(false);
+                }}
+                variant="outline"
+                size="lg"
+                className="w-full font-semibold"
+              >
+                ➕ Жаңа шағым құру
+              </PrimaryButton>
             </div>
 
             <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
