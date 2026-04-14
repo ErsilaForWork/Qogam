@@ -437,49 +437,57 @@ export default function App() {
         );
       } else {
         return (
-          <div className="flex flex-col gap-3 mt-8">
-            <PrimaryButton
-              onClick={async () => {
-                try {
-                  await copyToClipboard(complaint);
-                  setCopied(true);
-                  setTimeout(() => setCopied(false), 2000);
-                } catch (err) {
-                  console.error('Copy failed:', err);
-                }
-              }}
-              variant="primary"
-              size="lg"
-              className="w-full font-semibold"
-            >
-              📋 Көшіру
-            </PrimaryButton>
-            
-            <PrimaryButton
-              onClick={() => {
-                window.open('https://egov.kz', '_blank');
-              }}
-              variant="secondary"
-              size="lg"
-              className="w-full font-semibold"
-            >
-              🌐 Қызметті ашу
-            </PrimaryButton>
+          <>
+            <div className="flex flex-col gap-3 mt-8">
+              <PrimaryButton
+                onClick={async () => {
+                  try {
+                    await copyToClipboard(complaint);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  } catch (err) {
+                    console.error('Copy failed:', err);
+                  }
+                }}
+                variant="primary"
+                size="lg"
+                className="w-full font-semibold"
+              >
+                📋 Көшіру
+              </PrimaryButton>
+              
+              <PrimaryButton
+                onClick={() => {
+                  window.open('https://eotinish.kz/kk', '_blank');
+                }}
+                variant="secondary"
+                size="lg"
+                className="w-full font-semibold"
+              >
+                🌐 eOtinish сайты
+              </PrimaryButton>
 
-            <PrimaryButton
-              onClick={() => {
-                setStep(2);
-                setSelectedProblem('');
-                setComplaint('');
-                setErrors({});
-              }}
-              variant="outline"
-              size="lg"
-              className="w-full"
-            >
-              ➕ Жаңа шағым
-            </PrimaryButton>
-          </div>
+              <PrimaryButton
+                onClick={() => {
+                  window.open('https://www.youtube.com/watch?v=OMTGh4ITtHA', '_blank');
+                }}
+                variant="outline"
+                size="lg"
+                className="w-full font-semibold"
+              >
+                📹 Шағымды жіберуді үйрену
+              </PrimaryButton>
+            </div>
+
+            <div className="mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <h3 className="font-semibold text-dark mb-3">Қадамдар:</h3>
+              <ol className="list-decimal list-inside space-y-2 text-sm text-gray-700">
+                <li>Жоғарыдағы "eOtinish" батырмасын басу арқылы eOtinish сайтына өтіңіз.</li>
+                <li>Төмендегі бейне сабақты қарап, шағымды қалай жіберу керектігін үйреніңіз.</li>
+                <li>Сіздің дайын шағым мәтінін пайдаланып, шағымыңызды жіберіңіз.</li>
+              </ol>
+            </div>
+          </>
         );
       }
     };
