@@ -322,13 +322,13 @@ export default function App() {
             
             {/* Address Fields */}
             <div className="bg-light rounded-lg p-4 border-2 border-accent mb-6">
-              <p className="text-sm font-semibold text-dark mb-4">Мекен жайыңыз</p>
+              <p className="text-sm font-semibold text-dark mb-4">Мәселе болған мекенжай / Жеке мекенжайыңыз</p>
               
               <InputField
                 label="Облыс"
                 value={formData.oblys}
                 onChange={(value) => setFormData({ ...formData, oblys: value })}
-                placeholder="Түркістан облысы"
+                placeholder="Түркістан"
                 error={errors.oblys}
               />
 
@@ -337,7 +337,7 @@ export default function App() {
                   label="Аудан"
                   value={formData.audan}
                   onChange={(value) => setFormData({ ...formData, audan: value })}
-                  placeholder="Түлкібас ауданы"
+                  placeholder="Түлкібас"
                   error={errors.audan}
                 />
                 
@@ -345,7 +345,7 @@ export default function App() {
                   label="Қала / Ауыл"
                   value={formData.qala}
                   onChange={(value) => setFormData({ ...formData, qala: value })}
-                  placeholder="Түлкібас қаласы"
+                  placeholder="Түлкібас"
                   error={errors.qala}
                 />
               </div>
@@ -360,7 +360,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <InputField
-                  label="Үй құрылысы"
+                  label="Үй нөмірі"
                   value={formData.yy}
                   onChange={(value) => setFormData({ ...formData, yy: value })}
                   placeholder="10/2"

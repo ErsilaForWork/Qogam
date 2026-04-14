@@ -15,7 +15,7 @@ export function replaceTemplatePlaceholders(template, values) {
 }
 
 export function buildFullAddress(oblys, audan, qala, koshe, yy) {
-  return `${oblys}, ${audan}, ${qala}, ${koshe} к-сі, ${yy}`;
+  return `${oblys} облысы, ${audan} ауданы, ${qala} қаласы, ${koshe} көшесі ${yy} үй`;
 }
 
 export function copyToClipboard(text) {

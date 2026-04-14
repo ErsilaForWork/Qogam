@@ -431,29 +431,29 @@ export const problemCategories = [
     id: 'municipal',
     name: 'Қалалық инфрақұрылым',
     problems: [
-      { id: 'qoqys', name: 'Қоқыс шығару' },
-      { id: 'shu', name: 'Шу' },
+      { id: 'qoqys', name: 'Қоқыс шығару мәселесі' },
+      { id: 'shu', name: 'Шулау мәселесі' },
       { id: 'jol_maselesi', name: 'Жол мәселесі' },
-      { id: 'zaryktanndyru', name: 'Жарықтандыру' },
-      { id: 'aula_zhagdayy', name: 'Аула жағдайы' }
+      { id: 'zaryktanndyru', name: 'Жарықтандыру мәселесі' },
+      { id: 'aula_zhagdayy', name: 'Аула жағдайының нашар болуы' }
     ]
   },
   {
     id: 'housing',
     name: 'Тұрғын үй және коммуналдық қызметтер',
     problems: [
-      { id: 'su_keriz', name: 'Сумен жабдықтау және кәріз' },
-      { id: 'zhylu', name: 'Жылумен жабдықтау' },
-      { id: 'elektr_energiya', name: 'Электрмен жабдықтау' },
-      { id: 'lift', name: 'Лифт' },
-      { id: 'poezd_tazalygy', name: 'Кіреберіс тазалығы' }
+      { id: 'su_keriz', name: 'Сумен жабдықтау және кәрізбен мәселе' },
+      { id: 'zhylu', name: 'Жылумен дұрыс жабдықталмау' },
+      { id: 'elektr_energiya', name: 'Тоқ көзімен дұрыс жабдықталмау' },
+      { id: 'lift', name: 'Лифт мәселесі' },
+      { id: 'poezd_tazalygy', name: 'Кіреберіс тазалығының сақталмауы' }
     ]
   },
   {
     id: 'public',
     name: 'Қоғамдық орта',
     problems: [
-      { id: 'kogamdyk_kolik', name: 'Қоғамдық көлік' },
+      { id: 'kogamdyk_kolik', name: 'Қоғамдық көлік сапасының төменділігі' },
       { id: 'zansyz_kyrylys', name: 'Заңсыз құрылыс' },
       { id: 'ruksatsyz_sauda', name: 'Рұқсатсыз сауда' }
     ]
@@ -463,7 +463,7 @@ export const problemCategories = [
     name: 'Мемлекеттік қызметтер',
     problems: [
       { id: 'sybaylas_zhemqorlyk', name: 'Сыбайлас жемқорлық' },
-      { id: 'qyzmet_sapasy', name: 'Мемлекеттік қызмет сапасы' }
+      { id: 'qyzmet_sapasy', name: 'Мемлекеттік қызмет сапасының төменділігі' }
     ]
   },
   {
