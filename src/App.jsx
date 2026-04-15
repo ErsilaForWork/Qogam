@@ -73,7 +73,7 @@ export default function App() {
               <h1 className="text-6xl font-bold text-dark mb-4 leading-tight">
                 Әртүрлі әлеуметтік мәселелерге қатысты<br/><span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">шағым құру</span>
               </h1>
-              <p className="text-2xl text-accent mb-3">Мәселеңізді ресми түрде білдіріңіз</p>
+              <p className="text-2xl text-accent mb-3">Мәселеңізді ресми түрде жеткізіңіз</p>
               <p className="text-lg text-accent">Оңай, тез және шығынсыз</p>
             </div>
 
@@ -101,32 +101,32 @@ export default function App() {
         {/* Features Section */}
         <div className="py-20 px-4 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-bold text-center text-dark mb-4">Біздің платформаның артықшылықтары</h2>
+            <h2 className="text-4xl font-bold text-center text-dark mb-4">Біздің платформаның құндылықтары</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Feature 1 */}
               <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-8 border-2 border-light shadow-soft hover:shadow-gentle hover:border-primary transition-all hover:-translate-y-2 animate-slideInUp" style={{ animationDelay: '0.4s' }}>
-                <div className="text-5xl mb-4">⚡</div>
-                <h3 className="text-xl font-bold text-dark mb-3">5 минутта шағым құрыңыз</h3>
+                <div className="text-5xl mb-4">🌍</div>
+                <h3 className="text-xl font-bold text-dark mb-3">Қоғамдық мәселелерді шешуге үлес</h3>
                 <p className="text-accent leading-relaxed">
-                  Біздің платформа әр адам еш қиындықсыз шағым құра алатындай етіп оңай және интуитивті түрде жасалған. Сізден тек қажетті деректерді жазу ғана қажет, қалғанын біз өзіміз жасаймыз.                </p>
+                  Әрбір азамат өз мәселесін жеткізу арқылы қоғамның жақсаруына ықпал етеді.                </p>
               </div>
 
               {/* Feature 2 */}
               <div className="bg-gradient-to-br from-green-50 to-white rounded-xl p-8 border-2 border-light shadow-soft hover:shadow-gentle hover:border-secondary transition-all hover:-translate-y-2 animate-slideInUp" style={{ animationDelay: '0.5s' }}>
-                <div className="text-5xl mb-4">🔒</div>
-                <h3 className="text-xl font-bold text-dark mb-3">Толықтай құпиялы</h3>
+                <div className="text-5xl mb-4">👥</div>
+                <h3 className="text-xl font-bold text-dark mb-3">Азаматтық белсенділікті арттыру</h3>
                 <p className="text-accent leading-relaxed">
-                  Сіздің мәліметтеріңіз қорғалған және тек өзіңізге ғана қолжетімді. Біз ешқашан үшінші тарапқа мәліметтерді жібермейміз. Қауіпсіздік пен құпиялылық біздің басты басымдықтарымыздың бірі.
+                  Платформа адамдарды бейжай қалмай, өз пікірін ресми түрде білдіруге ынталандырады.
                 </p>
               </div>
 
               {/* Feature 3 */}
               <div className="bg-gradient-to-br from-purple-50 to-white rounded-xl p-8 border-2 border-light shadow-soft hover:shadow-gentle hover:border-primary transition-all hover:-translate-y-2 animate-slideInUp" style={{ animationDelay: '0.6s' }}>
                 <div className="text-5xl mb-4">✅</div>
-                <h3 className="text-xl font-bold text-dark mb-3">Ресми құрылым</h3>
+                <h3 className="text-xl font-bold text-dark mb-3">Жылдам әрі қолжетімді шешім</h3>
                 <p className="text-accent leading-relaxed">
-                  Шағым барлық нормативтік талаптарға сай және бекітілген стандарттарға толық сәйкес әзірленеді.  Сонымен қатар, барлық деректер тиісті талаптарға сай тексеріліп, бекітілген тәртіпке сәйкес жүйеленеді.
+                  Қарапайым құрылымның арқасында кез келген адам бірнеше секунд ішінде шағым жаза алады.
                 </p>
               </div>
             </div>
@@ -322,13 +322,13 @@ export default function App() {
             
             {/* Address Fields */}
             <div className="bg-light rounded-lg p-4 border-2 border-accent mb-6">
-              <p className="text-sm font-semibold text-dark mb-4">Мекен жайыңыз</p>
+              <p className="text-sm font-semibold text-dark mb-4">Мәселе болған мекенжай / Жеке мекенжайыңыз</p>
               
               <InputField
                 label="Облыс"
                 value={formData.oblys}
                 onChange={(value) => setFormData({ ...formData, oblys: value })}
-                placeholder="Түркістан облысы"
+                placeholder="Түркістан"
                 error={errors.oblys}
               />
 
@@ -337,7 +337,7 @@ export default function App() {
                   label="Аудан"
                   value={formData.audan}
                   onChange={(value) => setFormData({ ...formData, audan: value })}
-                  placeholder="Түлкібас ауданы"
+                  placeholder="Түлкібас"
                   error={errors.audan}
                 />
                 
@@ -345,13 +345,13 @@ export default function App() {
                   label="Қала / Ауыл"
                   value={formData.qala}
                   onChange={(value) => setFormData({ ...formData, qala: value })}
-                  placeholder="Түлкібас қаласы"
+                  placeholder="Түлкібас"
                   error={errors.qala}
                 />
               </div>
 
               <InputField
-                label="Көше аты"
+                label="Көше атауы"
                 value={formData.koshe}
                 onChange={(value) => setFormData({ ...formData, koshe: value })}
                 placeholder="Абылай хан"
@@ -360,7 +360,7 @@ export default function App() {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                 <InputField
-                  label="Үй құрылысы"
+                  label="Үй нөмірі"
                   value={formData.yy}
                   onChange={(value) => setFormData({ ...formData, yy: value })}
                   placeholder="10/2"
@@ -476,6 +476,31 @@ export default function App() {
                 className="w-full font-semibold"
               >
                 📹 Шағымды жіберуді үйрену
+              </PrimaryButton>
+
+              <PrimaryButton
+                onClick={() => {
+                  setStep(1);
+                  setComplaint('');
+                  setSelectedProblem('');
+                  setFormData({
+                    fullName: '',
+                    oblys: '',
+                    audan: '',
+                    qala: '',
+                    koshe: '',
+                    yy: '',
+                    date: new Date().toISOString().split('T')[0],
+                    customDescription: ''
+                  });
+                  setErrors({});
+                  setCopied(false);
+                }}
+                variant="outline"
+                size="lg"
+                className="w-full font-semibold"
+              >
+                ➕ Жаңа шағым құру
               </PrimaryButton>
             </div>
 
