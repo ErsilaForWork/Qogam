@@ -286,7 +286,7 @@ export default function App() {
             className="flex-1"
             disabled={!selectedProblem}
           >
-            Далее →
+            Келесі →
           </PrimaryButton>
         </div>
       </>
